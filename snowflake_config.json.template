@@ -1,0 +1,39 @@
+{
+  "account_identifier": "MYORG-MYACCOUNT",
+  "account": "MYORG-MYACCOUNT",
+  "user": "JETSON_STREAMING_USER",
+  "url": "https://MYORG-MYACCOUNT.snowflakecomputing.com",
+  "role": "JETSON_STREAMING_ROLE",
+  "database": "DEMO",
+  "schema": "DEMO",
+  "table": "JETSON_EDGE_STREAM",
+  "pipe": "JETSON_EDGE_STREAM-STREAMING",
+  "channel_name": "jetson_orin_channel_001",
+  "auth_method": "pat",
+  "private_key_path": "rsa_key.p8",
+  "private_key_passphrase": "",
+  "public_key_fp": "",
+  "jwt_lifetime_seconds": 3600,
+  "pat_token": "",
+  "pat": "",
+  "ollama": {
+    "enabled": true,
+    "base_url": "http://localhost:11434",
+    "model": "llama3.2",
+    "prompt_template": "Summarize the system status in one sentence: {metrics}",
+    "image_prompt_template": "You are analyzing a captured image provided in the request. Do not ask for a URL or description. Return a concise JSON object with keys: objects (array of strings), scene (string), anomalies (array of strings), risk_note (string).",
+    "max_response_chars": 512
+  },
+  "video_capture": {
+    "enabled": false,
+    "device_index": 0,
+    "output_dir": "./captures",
+    "filename_prefix": "orin"
+  },
+  "slack": {
+    "enabled": false,
+    "bot_token": "",
+    "channel": "",
+    "message_prefix": "Jetson Orin Upload"
+  }
+}

@@ -1,0 +1,6 @@
+cryptography
+psutil
+pyjwt
+requests
+opencv-python
+slack_sdk
