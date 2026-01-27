@@ -35,12 +35,12 @@ Quick start
 4) (Optional) Start Ollama and pull a model:
 
    ollama serve
-   ollama pull llama3.2
+   ollama pull llama3.2-vision
 
 5) Run the streamer:
 
    python main.py --config snowflake_config.json --batch-size 25 --interval 5.0
-   python main.py --ollama-model llama3.2
+   python main.py --ollama-model llama3.2-vision
 
 Debug mode
 ----------

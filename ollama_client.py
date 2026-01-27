@@ -1,5 +1,6 @@
 import base64
 import json
+import logging
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -41,7 +42,8 @@ class OllamaClient:
             if len(text) > self.config.max_response_chars:
                 return text[: self.config.max_response_chars]
             return text
-        except requests.RequestException:
+        except requests.RequestException as exc:
+            logging.warning("Ollama text request failed: %s", exc)
             return None
 
     def analyze_image(self, image_path: str, prompt: Optional[str] = None) -> Optional[str]:
@@ -70,7 +72,8 @@ class OllamaClient:
             if len(text) > self.config.max_response_chars:
                 return text[: self.config.max_response_chars]
             return text
-        except requests.RequestException:
+        except requests.RequestException as exc:
+            logging.warning("Ollama image request failed: %s", exc)
             return None
 
 

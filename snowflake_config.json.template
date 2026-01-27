@@ -19,7 +19,7 @@
   "ollama": {
     "enabled": true,
     "base_url": "http://localhost:11434",
-    "model": "llama3.2",
+    "model": "llama3.2-vision",
     "prompt_template": "Summarize the system status in one sentence: {metrics}",
     "image_prompt_template": "You are analyzing a captured image provided in the request. Do not ask for a URL or description. Return a concise JSON object with keys: objects (array of strings), scene (string), anomalies (array of strings), risk_note (string).",
     "max_response_chars": 512

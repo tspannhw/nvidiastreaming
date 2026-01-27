@@ -27,6 +27,8 @@ def _build_rows(
     rows = []
     sample_metrics = collect_metrics()
     summary = ollama.summarize(sample_metrics) if ollama else None
+    if ollama and not summary:
+        logging.warning("EDGE_AI_SUMMARY is empty; check Ollama config/model.")
     image_path, image_captured = capture_frame(video_cfg) if video_cfg else (None, False)
     if video_cfg and video_cfg.enabled and not image_captured:
         logging.warning("Video capture enabled but no image was captured.")
@@ -34,6 +36,8 @@ def _build_rows(
     image_summary = None
     if image_captured and image_path and ollama:
         image_summary = ollama.analyze_image(image_path, image_prompt)
+        if not image_summary:
+            logging.warning("image_ai_summary is empty; check vision model/capture.")
 
     if image_captured and image_path and slack:
         slack.send_image(image_path, image_summary)
